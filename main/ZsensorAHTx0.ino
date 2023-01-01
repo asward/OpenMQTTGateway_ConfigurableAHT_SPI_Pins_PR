@@ -53,17 +53,12 @@ Adafruit_AHTX0 ahtSensor;
 void setupZsensorAHTx0() {
   delay(10); // Gives the Sensor enough time to turn on
   Log.notice(F("AHTx0 Initialized - begin()" CR));
-
-#  if defined(ESP32)
+  
   Wire.begin(AHT_I2C_SDA, AHT_I2C_SCL);
-  if (!ahtSensor.begin(&Wire)) {
-    Log.error(F("Failed to initialize AHTx0 sensor!" CR));
-  }
-#  else
+
   if (!ahtSensor.begin()) {
     Log.error(F("Failed to initialize AHTx0 sensor!" CR));
   }
-#  endif
 }
 
 void MeasureAHTTempHum() {

@@ -48,11 +48,11 @@ extern void AHTx0toMQTT();
 /*-------------DEFINE YOUR MQTT PARAMETERS BELOW----------------*/
 #define AHTTOPIC "/CLIMAtoMQTT/aht"
 
-#if defined(ESP32)
-#  if !defined(AHT_I2C_SDA) || !defined(AHT_I2C_SCL)
-#    define AHT_I2C_SDA 16
-#    define AHT_I2C_SCL 0
+#  if !defined(AHT_I2C_SDA)
+#    define AHT_I2C_SDA SDA
 #  endif
-#endif
+#  if !defined(AHT_I2C_SCL)
+#    define AHT_I2C_SCL SCL
+#  endif
 
 #endif
